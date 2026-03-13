@@ -9,7 +9,7 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/place-picker/browser"
+        "distDir": "dist/http/browser"
       }
     }
   ],
