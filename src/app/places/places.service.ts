@@ -17,14 +17,14 @@ export class PlacesService {
 
   loadAvailablePlaces() {
     return this.fetchPlaces(
-      'http://localhost:3000/places',
+      'https://placepicker-angular-http.vercel.app/api/places',
       'Something went wrong fetching the available places. Please try again later.',
     );
   }
 
   loadUserPlaces() {
     return this.fetchPlaces(
-      'http://localhost:3000/user-places',
+      'https://placepicker-angular-http.vercel.app/api/user-places',
       'Something went wrong fetching your favorite places. Please try again later.',
     ).pipe(
       tap({
@@ -41,7 +41,7 @@ export class PlacesService {
     }
 
     return this.httpClient
-      .put('http://localhost:3000/user-places', {
+      .put('https://placepicker-angular-http.vercel.app/api/user-places', {
         placeId: place.id,
       })
       .pipe(
@@ -61,7 +61,9 @@ export class PlacesService {
     }
 
     return this.httpClient
-      .delete(`http://localhost:3000/user-places/${place.id}`)
+      .delete(
+        `https://placepicker-angular-http.vercel.app/api/user-places/${place.id}`,
+      )
       .pipe(
         catchError((error) => {
           this.userPlaces.set(prevPlaces);
